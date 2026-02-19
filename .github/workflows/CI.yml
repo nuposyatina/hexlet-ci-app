@@ -1,0 +1,11 @@
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Установка пакетов и сборка
+        run: make setup
+      - name: Проверка качества кода
+        run: make lint && make test
